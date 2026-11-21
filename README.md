@@ -33,7 +33,7 @@ npm --prefix client install
 cp .env.example .env                 # PINATA_JWT para IPFS real
 cp client/.env.example client/.env   # VITE_FIREBASE_* para Firebase
 
-npx hardhat node --hostname 127.0.0.1
+npm run nodo                       # nodo local persistente (Anvil)
 npm run deploy:local
 npm run preparar
 npm run ipfs-proxy
@@ -81,3 +81,7 @@ La red se elige con `VITE_CHAIN` en Vercel:
 - **`hardhat`** (por defecto): nodo local. Para usarlo desde otra computadora, ejecutar `iniciar_todo.bat` y luego `iniciar_tunel.bat` (o `npm run tunel`), y abrir la app con `?rpc=https://...trycloudflare.com`. La dirección también se puede pegar en el aviso rojo de la app.
 
 La app muestra un aviso cuando el nodo no responde, cuando faltan los contratos o cuando MetaMask está en otra red.
+
+## Nodo local persistente
+
+`npm run nodo` (y `iniciar_todo.bat`) usa Anvil, que guarda la cadena en `cadena-local.json` cada 3 segundos. Al cerrar y volver a abrir, siguen los contratos, las tesis, los votos y el contador de transacciones de cada cuenta, así que MetaMask no necesita "Borrar datos de actividad". Usa las mismas cuentas de prueba de Hardhat (10 000 ETH, ID de cadena 1337). Para empezar de cero: `reiniciar_cadena.bat` o `npm run nodo:reiniciar`. La alternativa sin persistencia sigue disponible con `npm run nodo:hardhat`.

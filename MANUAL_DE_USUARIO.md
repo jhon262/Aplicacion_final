@@ -17,7 +17,7 @@ Hace doble clic en `iniciar_todo.bat`. El script abre el nodo Hardhat (puerto 85
 ```powershell
 npm install
 npm --prefix client install
-npx hardhat node --hostname 127.0.0.1          # terminal 1
+npm run nodo                                   # terminal 1 (cadena guardada en cadena-local.json)
 npm run deploy:local                           # terminal 2
 npm run preparar                               # proyectos de demostración
 npm run ipfs-proxy                             # terminal 3 (necesita PINATA_JWT en .env)
@@ -185,7 +185,7 @@ Luego vuelve a ejecutar `iniciar_todo.bat`.
 Los cambios de presentación del diploma se guardan en el navegador. Los datos personales del graduado se guardan en Firestore desde "Editar datos". Lo que está en la cadena (votos, estado, hash) no se edita desde ninguna pantalla.
 
 ### 4. MetaMask muestra un error de nonce
-Pasa cuando se reinicia el nodo Hardhat. En MetaMask: Configuración > Avanzado > Borrar datos de actividad.
+Con el nodo persistente (`npm run nodo`) solo pasa la primera vez o después de `reiniciar_cadena.bat`. En MetaMask: Configuración > Avanzado > Borrar datos de actividad, una vez por cuenta.
 
 ### 5. El PDF se registró en "modo demostración"
 El proxy IPFS no estaba corriendo o falta `PINATA_JWT`. El hash SHA-256 sí quedó en la cadena, pero el archivo solo está en ese navegador.

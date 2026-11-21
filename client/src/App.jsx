@@ -679,7 +679,7 @@ export default function App() {
       .filter(Boolean)
       .join(' ');
     const lower = raw.toLowerCase();
-    if (lower.includes('nonce')) return 'MetaMask desincronizado (nonce). En MetaMask: Configuración > Avanzado > Borrar datos de actividad.';
+    if (lower.includes('nonce')) return 'MetaMask desincronizado (nonce): la cadena local se reinició. Hazlo una sola vez por cuenta: Configuración > Avanzado > Borrar datos de actividad.';
     if (lower.includes('user rejected') || lower.includes('denied')) return 'Transacción cancelada en MetaMask.';
     if (raw.includes('NotTribunalMember')) return 'Esta billetera no integra el tribunal del proyecto. Solo votan los tres docentes asignados por Secretaría.';
     if (raw.includes('AlreadyVoted')) return 'Esta billetera ya votó en este proyecto.';

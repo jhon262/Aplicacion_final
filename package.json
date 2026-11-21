@@ -5,7 +5,6 @@
   "scripts": {
     "compile": "hardhat compile",
     "test": "hardhat test",
-    "node": "hardhat node --hostname 0.0.0.0 --port 8545",
     "deploy:local": "hardhat run scripts/deploy.js --network localhost",
     "deploy:sepolia": "hardhat run scripts/deploy.js --network sepolia",
     "deploy:amoy": "hardhat run scripts/deploy.js --network polygonAmoy",
@@ -15,7 +14,10 @@
     "seed:firebase": "node scripts/seed-firebase.js",
     "coverage": "hardhat coverage",
     "tunel": "npx --yes cloudflared tunnel --url http://localhost:8545",
-    "cuentas:sepolia": "hardhat run scripts/cuentas-sepolia.js --network sepolia"
+    "cuentas:sepolia": "hardhat run scripts/cuentas-sepolia.js --network sepolia",
+    "nodo": "node scripts/nodo.js",
+    "nodo:hardhat": "hardhat node --hostname 127.0.0.1 --port 8545",
+    "nodo:reiniciar": "node scripts/nodo.js --reiniciar"
   },
   "keywords": [
     "web3",
@@ -40,5 +42,12 @@
     "@nomicfoundation/hardhat-toolbox": "^6.1.2",
     "hardhat": "^2.29.1",
     "firebase-admin": "^13.0.0"
+  },
+  "optionalDependencies": {
+    "@foundry-rs/anvil-win32-amd64": "1.7.1",
+    "@foundry-rs/anvil-linux-amd64": "1.7.1",
+    "@foundry-rs/anvil-linux-arm64": "1.7.1",
+    "@foundry-rs/anvil-darwin-amd64": "1.7.1",
+    "@foundry-rs/anvil-darwin-arm64": "1.7.1"
   }
 }

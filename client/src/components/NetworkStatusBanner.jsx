@@ -98,8 +98,8 @@ export default function NetworkStatusBanner() {
           <>La aplicación consulta {code(targetRpcUrl)} y no obtuvo respuesta. Revisa tu conexión a internet o define otro RPC en la variable {code('VITE_SEPOLIA_RPC_URL')} de Vercel.</>,
         ])
       : box('No se encuentra el nodo Hardhat', [
-          <>La aplicación busca la red en {code(localRpcUrl)} y no responde. MetaMask mostrará "No se puede conectar a Hardhat Localhost" hasta que el nodo esté encendido.</>,
-          <>En la PC del nodo: haz doble clic en {code('iniciar_todo.bat')} o ejecuta {code('npx hardhat node --hostname 127.0.0.1')} en la carpeta del proyecto y deja esa ventana abierta.</>,
+          <>La aplicación busca la red en {code(localRpcUrl)} y no responde. MetaMask mostrará "No se puede conectar a la red" hasta que el nodo esté encendido.</>,
+          <>En la PC del nodo: haz doble clic en {code('iniciar_todo.bat')} o ejecuta {code('npm run nodo')} en la carpeta del proyecto y deja esa ventana abierta.</>,
           <>Si entras desde otra computadora, pega abajo la dirección del túnel que muestra {code('npm run tunel')} en la PC del nodo.</>,
         ], rpcEditor);
   if (status === 'wrongnode')
@@ -112,8 +112,7 @@ export default function NetworkStatusBanner() {
           <>En la carpeta del proyecto ejecuta {code('npm run deploy:sepolia')} (necesita {code('PRIVATE_KEY')} y {code('DOCENTE_WALLETS')} en el archivo .env), sube el cambio a GitHub y espera a que Vercel publique.</>,
         ])
       : box('El nodo está encendido, pero los contratos no están desplegados', [
-          <>Pasa cada vez que se reinicia el nodo. En la carpeta del proyecto ejecuta {code('npm run deploy:local')} y luego {code('npm run preparar')}.</>,
-          <>Después, en MetaMask: Configuración &gt; Avanzado &gt; Borrar datos de actividad.</>,
+          <>Pasa con una cadena nueva. Cierra y vuelve a abrir {code('iniciar_todo.bat')}, que despliega solo si hace falta, o ejecuta {code('npm run deploy:local')} y luego {code('npm run preparar')}.</>,
         ]);
   if (status === 'ok' && isConnected && chainId !== targetChain.id)
     return box('MetaMask está en otra red', [

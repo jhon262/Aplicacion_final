@@ -29,3 +29,6 @@ Thumbs.db
 .vscode/
 .idea/
 cloudflared.exe
+
+# Estado guardado de la cadena local (Anvil)
+cadena-local.json
